@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Clothing Parsing</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/style-clear.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='fas fa-tshirt'></i>
+      <span class="logo_name">Clothing Parsing</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/segmentation_predict">
+          <i class='bx bx-analyse'></i>
+          <span class="link_name">Segmentation</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/segmentation_predict">Segmentation</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bx-closet'></i>
+            <span class="link_name">Classification</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Classification</a></li>
+          <li><a href="/classification_predict">Yolo</a></li>
+          <li><a href="/mask_predict">Mask RCNN</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="/color_predict">
+            <i class='bx bx-palette'></i>
+            <span class="link_name">Color Analysis</span>
+          </a>
+        </div>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/color_predict">Color Analysis</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bxs-data'></i>
+            <span class="link_name">Datas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Datas</a></li>
+          <li><a href="/1">Upload Data</a></li>
+          <li><a href="/3">Uploaded Datas</a></li>
+          <li><a href="/label">Labels</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <!-- 
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="static/image/profile.jpg" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+    -->
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <!-- <span class="text">Drop Down Sidebar</span> -->
+      <img class="zoi-logo" src="static/image/logo.png">
+    </div>
+    <div class="container-fuild">
+      <h1 class="upload-h1">Upload Data</h1>
+      <p class="upload-p">Please upload images.</p>
+      <div id="dropzone">
+        <form method="POST" action="/1" class="dropzone needsclick dz dz-clickable" id="demo-upload">
+          <input type="hidden" name="csrfmiddlewaretoken" value="ID9W7U1WH9N7mdCfxFazHZVN50QW9yDYfh2fFNoMSUysXN0w7w86Eg2HPOTHfsVC">
+          
+          
+        <div class="dz-message needsclick dz">
+          <div><i class="fas fa-cloud-upload-alt fa-10x"></i></div>
+          
+          <button type="button" class="dz-button">Drop files here or click to upload.</button><br>
+          <span class="note needsclick">(Use the <strong>Clear Database</strong> button if you want to delete the data you have uploaded.)</span>
+        </div>
+
+        </form>
+      </div>
+      <div class="clear-bar">
+          <p class="alert">
+            <button class="alert-danger" type="button" onclick="onDelete()"><i class="fas fa-trash-alt"></i> Clear Database</button>
+            <div id="confirmation" class="modal-container">
+              <div class="modal">
+                <section>
+                  <header class="modal-header">
+                    <span id="modal-x" onclick="onCancel()">&times;</span>
+                    <h2>Are you sure ?</h2>
+                  </header>
+                  <section class="modal-content">
+                    <p>All data you upload will be deleted. If you approve, click delete.</p>
+                  </section>
+                  <footer class="modal-footer">
+                    <button id="modal-button" class="modal-button" onclick="onCancel()">Cancel</button>
+                    <form method="post" action="/2"><button
+                      class="modal-button modal-confirm-button"
+                      onclick="onConfirm()">Confirm
+                    </button></form>
+                  </footer>
+                </section>
+              </div>
+            </div>
+          </p>
+      </div>
+    </div>
+  </section>
+
+  <script src="static/js/script.js"></script>
+  <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <script>
+    var myDropzone=new Dropzone("#demo-upload", {acceptedFiles: ".jpeg,.jpg,.png", url:"/1"});
+  </script>
+  <script src="static/js/clear.js"></script>
+</body>
+</html>

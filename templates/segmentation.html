@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Clothing Parsing</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/class.css">
+    <link rel="stylesheet" href="static/css/remove.css">
+
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='fas fa-tshirt'></i>
+      <span class="logo_name">Clothing Parsing</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/segmentation_predict">
+          <i class='bx bx-analyse'></i>
+          <span class="link_name">Segmentation</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/segmentation_predict">Segmentation</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bx-closet'></i>
+            <span class="link_name">Classification</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Classification</a></li>
+          <li><a href="/classification_predict">Yolo</a></li>
+          <li><a href="/mask_predict">Mask RCNN</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="/color_predict">
+            <i class='bx bx-palette'></i>
+            <span class="link_name">Color Analysis</span>
+          </a>
+        </div>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/color_predict">Color Analysis</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bxs-data'></i>
+            <span class="link_name">Datas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Datas</a></li>
+          <li><a href="/1">Upload Data</a></li>
+          <li><a href="/3">Uploaded Datas</a></li>
+          <li><a href="/label">Labels</a></li>
+        </ul>
+      </li>
+
+      <li>
+    <!--
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="static/image/profile.jpg" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div> -->
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <!-- <span class="text">Drop Down Sidebar</span> -->
+      <img class="zoi-logo" src="static/image/logo.png">
+    </div>
+    <div class="container-fuild">
+      <div class="row">
+        <div class="container-fuild">
+          <div class="media">
+            <div class="card">
+              <div class="carousel">
+                <h1 class="h3">Labelled Images</h1>
+                <p class="alert">You can view and download the labelled results.</p>
+                <div class="col">
+                  <ul role="tablist" class="nav">
+                    <li class="nav-item">
+                      <h6 class="nav-link">
+                        <i class="far fa-images"></i>
+                         Download & Delete Labelled Images
+                      </h6>
+                    </li>
+                    <li class="nav-item">
+                      <a href="static/zip/label_seg.zip" download="label">
+                        <button class="btn">
+                          <i class="fas fa-file-download"></i> Download
+                        </button>
+                      </a>
+                      
+                        <div class="mid">
+                          <button type="button" class="btn" onclick="onDelete()">
+                            <i class="fas fa-trash-alt"></i> Clear Labels
+                          </button>
+                          <div id="confirmation" class="modal-container">
+                            <div class="modal">
+                              <section>
+                                <header class="modal-header">
+                                  <span id="modal-x" onclick="onCancel()">&times;</span>
+                                  <h2>Are you sure ?</h2>
+                                </header>
+                                <section class="modal-content">
+                                  <p>All data output from prediction model will be deleted. If you approve, click delete.</p>
+                                </section>
+                                <footer class="modal-footer">
+                                  <button id="modal-button" class="modal-button" onclick="onCancel()">Cancel</button>
+                                  <form method="post" action="/7"><button
+                                    class="modal-button modal-confirm-button"
+                                    onclick="onConfirm()">Confirm
+                                  </button></form>
+                                </footer>
+                              </section>
+                            </div>
+                          </div>
+                        </div>
+                      
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="slideshow">
+                  {% for i in list %}
+                  <div class="mySlides fade">
+                    <img src="static/segmentation/{{i}}" style="width:100%" class="picture">
+                  </div>
+                  {% endfor %}
+                  <a class="prev" onclick="plusSlides(-1)">❮</a>
+                  <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+                <br>
+                <div style="text-align:center">
+                  {% for i in range(length) %}
+                  <span class="dot" onclick="currentSlide({{i+1}})"></span> 
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="static/js/script.js"></script>
+  <script src="static/js/slideshow.js"></script>
+  <script src="static/js/clear.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Clothing Parsing</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/label.css">
+    <link rel="stylesheet" href="static/css/label_alert.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='fas fa-tshirt'></i>
+      <span class="logo_name">Clothing Parsing</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/segmentation_predict">
+          <i class='bx bx-analyse'></i>
+          <span class="link_name">Segmentation</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/segmentation_predict">Segmentation</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bx-closet'></i>
+            <span class="link_name">Classification</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Classification</a></li>
+          <li><a href="/classification_predict">Yolo</a></li>
+          <li><a href="/mask_predict">Mask RCNN</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="/color_predict">
+            <i class='bx bx-palette'></i>
+            <span class="link_name">Color Analysis</span>
+          </a>
+        </div>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/color_predict">Color Analysis</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bxs-data'></i>
+            <span class="link_name">Datas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Datas</a></li>
+          <li><a href="/1">Upload Data</a></li>
+          <li><a href="/3">Uploaded Datas</a></li>
+          <li><a href="/label">Labels</a></li>
+        </ul>
+      </li>
+
+      <li>
+    <!--
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="static/image/profile.jpg" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div> -->
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <!-- <span class="text">Drop Down Sidebar</span> -->
+      <img class="zoi-logo" src="static/image/logo.png">
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="container-fluid">
+            <div class="media-container-row">
+                <div class="card">
+                    <div class="col-lg-7">
+                          <div class="alert alert-danger -error" role="alert">
+                              You don't have any labelled data! Please try running one of the available models: 
+                          </div>    
+                          <div class="list-group">
+                            <h3 class="list-group-item">
+                              Models
+                            </h3>
+                            <a class="list-group-item-action" href="/label_seg">
+                              <i>
+                                <i class="fas fa-tshirt"></i>
+                              </i>
+                              <span>Segmentation</span></a>
+                            <a class="list-group-item-action" href="/label_class">
+                              <i>
+                                <i class="fas fa-stream"></i>
+                              </i>
+                              <span>Classification</span></a>
+                          </div>
+                    
+                  
+                    </div>
+                </div>
+          
+            </div>
+        </div>
+    </div>
+
+      </div>
+  </section>
+
+  <script src="static/js/script.js"></script>
+
+</body>
+</html>

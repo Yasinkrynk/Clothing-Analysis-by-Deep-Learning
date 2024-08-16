@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Clothing Parsing</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/predict.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='fas fa-tshirt'></i>
+      <span class="logo_name">Clothing Parsing</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/segmentation_predict">
+          <i class='bx bx-analyse'></i>
+          <span class="link_name">Segmentation</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/segmentation_predict">Segmentation</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bx-closet'></i>
+            <span class="link_name">Classification</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Classification</a></li>
+          <li><a href="/classification_predict">Yolo</a></li>
+          <li><a href="/mask_predict">Mask RCNN</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="/color_predict">
+            <i class='bx bx-palette'></i>
+            <span class="link_name">Color Analysis</span>
+          </a>
+        </div>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="/color_predict">Color Analysis</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a>
+            <i class='bx bxs-data'></i>
+            <span class="link_name">Datas</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name">Datas</a></li>
+          <li><a href="/1">Upload Data</a></li>
+          <li><a href="/3">Uploaded Datas</a></li>
+          <li><a href="/label">Labels</a></li>
+        </ul>
+      </li>
+
+      <li>
+    <!--
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="static/image/profile.jpg" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Prem Shahi</div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div> -->
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <!-- <span class="text">Drop Down Sidebar</span> -->
+      <img class="zoi-logo" src="static/image/logo.png">
+    </div>
+    <div class="container-fuild">
+        <div class="row">
+            <div class="col">
+                <div class="bg">
+                    <ul role="tablist" class="mb">
+                        <li class="nav-item">
+                            <i class="fas fa-robot fa-5x"></i>
+                            <h1 class="h">Classification Predict</h1>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane">
+                            <p class="alert">Run the script and show the prediction.</p>
+                            <div class="tab-pane">
+                                <div class="content-center">
+                                    <a href="/mask_class" class="nav-link">
+                                        <button class="btn-light">
+                                            <svg class="bi bi-play-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
+                                                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 010 1.393z"></path>
+                                            </svg> Predict
+                                        </button>
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <script src="static/js/script.js"></script>
+
+
+</body>
+</html>
